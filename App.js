@@ -1,26 +1,32 @@
-import { StatusBar } from "expo-status-bar";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import OrdersScreen from "./screens/OrdersScreen";
-import OrderDeliveryScreen from "./screens/OrderDeliveryScreen";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-const Stack = createNativeStackNavigator();
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   return (
-    <GestureHandlerRootView className="flex-1">
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="Orders" component={OrdersScreen} />
-          <Stack.Screen name="OrderDelivery" component={OrderDeliveryScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-      <StatusBar style="auto" />
-    </GestureHandlerRootView>
+    <View style={styles.container}>
+      <StatusBar style="light" />
+      <Text style={styles.title}>APP OK</Text>
+      <Text style={styles.text}>Abriu sem cair</Text>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#111',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    color: '#ffcc00',
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 20,
+    marginTop: 10,
+  },
+});
